@@ -1,0 +1,14 @@
+{
+    "java.format.settings.url": "eclipse-formatter.xml",
+    "[java]": {
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": true
+    },
+    "cSpell.words": [
+        "commandqueue",
+        "instruc",
+        "jobqueue"
+    ],
+    "java.dependency.packagePresentation": "hierarchical",
+    "editor.bracketPairColorization.enabled": true,
+}

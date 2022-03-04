@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch AppMain",
+            "request": "launch",
+            "mainClass": "AppMain",
+            "projectName": "OS"
+        },
+        {
+            "type": "java",
+            "name": "Launch TXTOperation",
+            "request": "launch",
+            "mainClass": "TXTOperation",
+            "projectName": "OS"
+        },
+        {
+            "type": "java",
+            "name": "Launch TEST",
+            "request": "launch",
+            "mainClass": "TEST",
+            "projectName": "OS"
+        },
+        {
+            "type": "node-terminal",
+            "name": "JavaScript Debug Terminal",
+            "request": "launch",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
