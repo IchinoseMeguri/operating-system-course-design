@@ -25,3 +25,4 @@ hs_err_pid*
 # Others #
 /*.txt
 *.xml
+*.puml
