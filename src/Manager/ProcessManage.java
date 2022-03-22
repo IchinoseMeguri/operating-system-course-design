@@ -94,7 +94,6 @@ public class ProcessManage{
         Backup.add(job);
         // 为作业分配外存，置作业的外存地址值
         job.setDiskAddress(StorageManage.AllocateDisk(Disk.JOB_CAN_USE_BLOCK_NUM));
-        System.out.println(job.toString());
         Gui.DialogueUpdate(GUI.DialogueType.NEW,new PCB(job));
     }
 
@@ -158,7 +157,6 @@ public class ProcessManage{
                 PageTable.setProID(Memory.getBlockNo(pcb.getBaseAddress())+i,pcb.getProID());
             pcb.setVirtualBaseAddress(StorageManage.AllocateSwap(Disk.PROCESS_SWAP_PAGE));// 分配虚存并置值
             Gui.DialogueUpdate(GUI.DialogueType.CREATE,pcb);
-            System.out.println("Create process: "+pcb.getProID());
         }
     }
 
@@ -179,7 +177,6 @@ public class ProcessManage{
         StorageManage.ClearMemory(Memory.getBlockNo(pcb.getBaseAddress()),Memory.PROCESS_PAGE_NUM);// 回收内存
         StorageManage.ClearDisk(Disk.getBlockNo(pcb.getVirtualBaseAddress()),Disk.PROCESS_SWAP_PAGE);// 回收虚存
         Gui.DialogueUpdate(GUI.DialogueType.STOP,pcb);
-        System.out.println("Delete process: "+pcb.getProID());
     }
 
     /**
@@ -216,7 +213,6 @@ public class ProcessManage{
         }
         CPU.ProtectScene();// CPU保护现场
         Gui.DialogueUpdate(GUI.DialogueType.BLOCK,pcb);
-        System.out.println("Block process: "+pcb.getProID());
     }
 
     /**
@@ -250,7 +246,6 @@ public class ProcessManage{
                 BlockQueue5Dialogue.add(new QueueDialogue(pcb,pcb.getQueueTimes(type-1),Clock.getTime()));
                 break;
         }
-        System.out.println("Wake up process: "+pcb.getProID());
         ReturnReady(pcb);// PCB返回就绪队列
     }
 
@@ -266,7 +261,6 @@ public class ProcessManage{
         ReadyQueueDialogue.add(new QueueDialogue(pcb,pcb.getQueueTimes(0),Clock.getTime()));
         CPU.setPSW(CPUStates.USER);// 设置CPU状态为用户态
         CPU.setFree(false);// 置CPU为非空闲
-        System.out.println("Run process: "+pcb.getProID());
     }
 
     /**

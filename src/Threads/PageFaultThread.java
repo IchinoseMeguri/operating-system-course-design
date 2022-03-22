@@ -87,7 +87,6 @@ public class PageFaultThread extends Thread{
     public static void PageFault(PCB pcb,int l_Address){
         setPcb(pcb);
         setL_Address(l_Address);
-        System.out.println("Page Fault.");
         LRU(pcb,l_Address);
     }
 

@@ -118,7 +118,6 @@ public class Gui extends JFrame{
         ReadInJobs.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 try{
-                    System.out.println("Read in jobs:");
                     ProcessManage.setJobs(TXTOperation.GetJobsQueue());
                 }catch(IOException e1){
                     e1.printStackTrace();
@@ -131,7 +130,6 @@ public class Gui extends JFrame{
         CreateNewJob=new JButton("实时作业请求");
         CreateNewJob.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                System.out.println("Create new job.");
                 ProcessManage.CreateNewJob();
                 JobInformation.setText(Log.getJobsString());
                 JobInformation.setCaretPosition(JobInformation.getDocument().getLength());
@@ -171,12 +169,10 @@ public class Gui extends JFrame{
                     Clock.setStop(true);
                     isRunning=false;
                     Suspend.setText("继续");
-                    System.out.println("Suspend.");
                 }else{
                     Clock.setStop(false);
                     isRunning=true;
                     Suspend.setText("暂停");
-                    System.out.println("Continue.");
                 }
             }
         });
@@ -200,13 +196,11 @@ public class Gui extends JFrame{
                 }
                 Clock.setSpeed(SpeedFlag);
                 SpeedUp.setText("速度x"+SpeedFlag);
-                System.out.println("Speed: "+SpeedFlag);
             }
         });
         OutputDialogue=new JButton("输出日志文件");
         OutputDialogue.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                System.out.print("Output dialogue to file: ");
                 try{
                     TXTOperation.SaveProcessResults(Log.getOutputString(),Clock.getTime());
                 }catch(IOException e1){

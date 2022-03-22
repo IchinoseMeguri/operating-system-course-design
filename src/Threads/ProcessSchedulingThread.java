@@ -39,6 +39,7 @@ public class ProcessSchedulingThread extends Thread{
                         switch(CPU.getCmd().getInstruc_State()){
                             case 2, 3:
                                 CPU.setPSW(CPUStates.KERNEL);
+                                Gui.Show();
                                 CPU.incPC();
                                 CPU.incIR();
                                 CPU.setRunTime(0);
@@ -46,6 +47,7 @@ public class ProcessSchedulingThread extends Thread{
                                 break;
                             case 4, 5:
                                 CPU.setPSW(CPUStates.KERNEL);
+                                Gui.Show();
                                 PCB pcb=CPU.getPcb();
                                 Gui.DialogueUpdate(DialogueType.COPY_IN,pcb);
                                 CPU.incPC();
@@ -56,6 +58,7 @@ public class ProcessSchedulingThread extends Thread{
                                 break;
                             case 6:
                                 CPU.setPSW(CPUStates.KERNEL);
+                                Gui.Show();
                                 pcb=CPU.getPcb();
                                 Gui.DialogueUpdate(DialogueType.PRINT,pcb);
                                 CPU.incPC();

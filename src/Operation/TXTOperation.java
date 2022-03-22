@@ -85,9 +85,6 @@ public interface TXTOperation{
             ArrayList<Command> commandqueue=GetCommandQueue(InputFromFile(".\\input\\"+array[i]+".txt"));
             jobqueue.add(new Job(array[i++],array[i++],array[i++],array[i++],commandqueue));
         }
-        for(int i=0;i<jobqueue.size();i++){
-            System.out.println(jobqueue.get(i).toString()+"\n");
-        }
         return jobqueue;
     }
 
@@ -102,6 +99,5 @@ public interface TXTOperation{
     public static void SaveProcessResults(String text,int EndTime) throws IOException{
         String filename="ProcessResults-"+EndTime+".txt";
         OutputToFile(filename,text);
-        System.out.println(filename);
     }
 }
